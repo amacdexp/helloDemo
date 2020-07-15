@@ -1,5 +1,5 @@
 # helloDemo
-Helloword deployable on CF & K8S (Kyma)
+Helloworld deployable on CF & K8S (Kyma)
 https://kyma-project.io/docs/
 
 Similar to:
