@@ -51,9 +51,9 @@ docker push amacdonaldsap/hello:latest
 ## Pre-req create Kyma system, and create a new namespace "hellodemo"
 
 ## windows cmd
-Set KUBECONFIG=C:\Users\i337529\Downloads\kubectl\kubeconfig--aaazzzz--okr0hqyaqu.yaml 
+Set KUBECONFIG=C:\<path>\kubeconfig--aaazzzz--okr0hqyaqu.yaml 
 ## windows powershell
-$env:KUBECONFIG="C:\Users\i337529\Downloads\kubectl\kubeconfig--aaazzzz--okr0hqyaqu.yaml" 
+$env:KUBECONFIG="C:\<path>\kubeconfig--aaazzzz--okr0hqyaqu.yaml" 
 ## linux
 export KUBECONFIG=/<path>/kubeconfig--<kymasystem>.yaml 
 
