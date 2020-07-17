@@ -48,7 +48,7 @@ docker push amacdonaldsap/hello:latest
 
 
 # Push to K8S / Kyma
-# Pre-req create Kyma system, and create a new namespace "hellodemo"
+## Pre-req create Kyma system, and create a new namespace "hellodemo"
 
 ## windows cmd
 Set KUBECONFIG=C:\Users\i337529\Downloads\kubectl\kubeconfig--aaazzzz--okr0hqyaqu.yaml 
