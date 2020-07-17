@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  labels:
+    app: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+        version: v1
+    spec:
+      containers:
+        - image: amacdonaldsap/hello:latest
+          #imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          name: hello
+          #env:
+          resources:
+            limits:
+              memory: 1000Mi
+            requests:
+              memory: 32Mi
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+  labels:
+    app: hello
+spec:
+  #clusterIP: None
+  ports:
+  - name: http
+    targetPort: 3000
+    protocol: TCP
+    port: 3000
+  selector:
+    app: hello
