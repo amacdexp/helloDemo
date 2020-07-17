@@ -1,38 +1,38 @@
 # helloDemo
-Helloworld deployable on CF & K8S (Kyma)
+Helloworld deployable on CF & K8S (Kyma)  
 https://kyma-project.io/docs/
 
-Similar to:
-Hello World 3 Ways: ABAP, Cloud Foundry, and Kubernetes
+Similar to:  
+Hello World 3 Ways: ABAP, Cloud Foundry, and Kubernetes  
 https://www.youtube.com/watch?v=lbJ2I964pfY&t=1317s
 
 
 # Test Locally
 ## terminal
-cd ../hello
-npm start
+cd ../hello  
+npm start  
 
 ## test
-http://localhost:3000
+http://localhost:3000  
 
 
 
 # Build & Run Docker image
-docker build -t am/hello:latest .
+docker build -t am/hello:latest .  
 
-docker run --name hello -it --init -p 3001:3000  am/hello:latest
-docker run --name hello -d -p 3001:3000  am/hello:latest
+docker run --name hello -it --init -p 3001:3000  am/hello:latest  
+docker run --name hello -d -p 3001:3000  am/hello:latest  
 
 ## test
 http://localhost:3001
 
 ## other related docker commands
-docker kill
-docker stop hello
-docker rm hello
-docker restart hello
-docker images
-docker ps
+docker kill  
+docker stop hello  
+docker rm hello  
+docker restart hello  
+docker images  
+docker ps  
 
 
 # Push to Dockerhub
@@ -61,6 +61,6 @@ kubectl replace --force -n hellodemo -f k8sDeployment.yaml
 
 
 # K8S commands
-kubectl -n hellodemo get pods
+kubectl -n hellodemo get pods  
 
 
