@@ -8,25 +8,25 @@ https://www.youtube.com/watch?v=lbJ2I964pfY&t=1317s
 
 
 # Test Locally
-# terminal
+## terminal
 cd ../hello
 npm start
 
-# test
+## test
 http://localhost:3000
 
 
 
-## Build & Run docker image
+# Build & Run Docker image
 docker build -t am/hello:latest .
 
 docker run --name hello -it --init -p 3001:3000  am/hello:latest
 docker run --name hello -d -p 3001:3000  am/hello:latest
 
-# test
+## test
 http://localhost:3001
 
-# other related docker commands
+## other related docker commands
 docker kill
 docker stop hello
 docker rm hello
@@ -36,7 +36,6 @@ docker ps
 
 
 # Push to Dockerhub
-# amacdonaldsap
 docker tag am/hello:latest amacdonaldsap/hello:latest
 docker rmi am/hello:latest
 
