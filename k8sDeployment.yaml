@@ -19,6 +19,7 @@ spec:
         - image: amacdonaldsap/hello:latest
           #imagePullPolicy: Always
           imagePullPolicy: IfNotPresent
+          #imagePullPolicy: Never
           ports:
             - name: http
               containerPort: 3000
@@ -26,7 +27,7 @@ spec:
           #env:
           resources:
             limits:
-              memory: 1000Mi
+              memory: 100Mi
             requests:
               memory: 32Mi
       restartPolicy: Always

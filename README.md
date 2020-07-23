@@ -46,6 +46,16 @@ docker login -u <userid>
 docker push amacdonaldsap/hello:latest
 
 
+# Push to SCP CF
+cf api https://api.cf.eu10.hana.ondemand.com
+cf login 
+
+cf push <App Name> --docker-image <Docker Image Repository:TagName> --docker-username <docker username>
+e.g.
+cf push helloDemo --docker-image amacdonaldsap/hello:latest --docker-username amacdonaldsap
+
+Runs at:
+hellodemo.cfapps.eu10.hana.ondemand.com
 
 # Push to K8S / Kyma
 ## Pre-req create Kyma system, and create a new namespace "hellodemo"
@@ -63,5 +73,4 @@ kubectl replace --force -n hellodemo -f k8sDeployment.yaml
 
 # K8S commands
 kubectl -n hellodemo get pods  
-
 
