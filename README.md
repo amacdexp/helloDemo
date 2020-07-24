@@ -10,8 +10,10 @@ https://www.youtube.com/watch?v=lbJ2I964pfY&t=1317s
 
 # Test Locally
 ## terminal
+```shell
 cd ../hello  
 npm start  
+```
 
 ## test
 http://localhost:3000  
@@ -24,10 +26,10 @@ docker run --name hello-node -it --init -p 3001:3000  amacdexp/hello-node:latest
 docker run --name hello-node -d -p 3001:3000  amacdexp/hello-node:latest  
 ```
 
-## test
+## Local Docker Test
 http://localhost:3001
 
-## other related docker commands
+## Other related docker commands
 ```shell
 docker kill  
 docker stop hello  
@@ -36,6 +38,7 @@ docker restart hello
 docker images  
 docker ps  
 ```
+
 
 
 # Push to Dockerhub
@@ -51,6 +54,7 @@ docker push amacdexp/hello-node:latest
 docker push <new id>/hello-node:latest
 ```
 
+
 # Push to SCP CF
 ```shell
 cf api https://api.cf.eu10.hana.ondemand.com
@@ -61,26 +65,27 @@ e.g.
 cf push hello-node --docker-image amacdexp/hello-node:latest --docker-username amacdexp
 ```
 
-Runs at:
-hellodemo.cfapps.eu10.hana.ondemand.com
+Runs at: 
+https://hello-node.cfapps.eu10.hana.ondemand.com
 
 # Push to K8S / Kyma
 ## Pre-req create Kyma system, and create a new namespace "hellodemo"
-
 ```shell
-## windows cmd
+# windows cmd
 Set KUBECONFIG=C:\<path>\kubeconfig.yaml 
-## windows powershell
+# windows powershell
 $env:KUBECONFIG="C:\<path>\kubeconfig.yaml" 
-## linux
+# linux
 export KUBECONFIG=/<path>/kubeconfig--<kymasystem>.yaml 
 
 kubectl cluster-info 
 
-## Push to K8S
+# Push to K8S
 kubectl replace --force -n test -f k8sDeployment.yaml  
+```
 
 
-# K8S commands
+## Other K8S commands
+```shell
 kubectl -n hellodemo get pods  
 ```
