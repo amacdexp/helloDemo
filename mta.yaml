@@ -3,10 +3,10 @@ _schema-version: '2.1'
 version: 0.0.1
 
 modules:
- - name: hello
+ - name: hello-node
    type: nodejs
-   path: hello
+   path: hello-node
    provides:
-    - name: hello_api
+    - name: hello_node_api
       properties:
          url: ${default-url}

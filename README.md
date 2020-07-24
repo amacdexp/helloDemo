@@ -1,5 +1,5 @@
 # Intro
-Helloworld deployable on CF & K8S (Kyma)  
+NodeJs Helloworld deployable on CF & K8S (Kyma)  
 https://kyma-project.io/docs/
 
 Similar to:  
@@ -17,42 +17,49 @@ npm start
 http://localhost:3000  
 
 # Build & Run Docker image
-docker build -t am/hello:latest .  
+```shell
+docker build -t amacdexp/hello-node:latest .  
 
-docker run --name hello -it --init -p 3001:3000  am/hello:latest  
-docker run --name hello -d -p 3001:3000  am/hello:latest  
+docker run --name hello-node -it --init -p 3001:3000  amacdexp/hello-node:latest  
+docker run --name hello-node -d -p 3001:3000  amacdexp/hello-node:latest  
+```
 
 ## test
 http://localhost:3001
 
 ## other related docker commands
+```shell
 docker kill  
 docker stop hello  
 docker rm hello  
 docker restart hello  
 docker images  
 docker ps  
-
+```
 
 
 # Push to Dockerhub
-docker tag am/hello:latest amacdonaldsap/hello:latest
-docker rmi am/hello:latest
+```shell
+docker tag amacdexp/hello-node:latest <new id>/hello-node:latest
+docker rmi amacdexp/hello-node:latest
 
 docker login docker.io
 
 
 docker login -u <userid>
-docker push amacdonaldsap/hello:latest
-
+docker push amacdexp/hello-node:latest
+docker push <new id>/hello-node:latest
+```
 
 # Push to SCP CF
+```shell
 cf api https://api.cf.eu10.hana.ondemand.com
 cf login 
 
 cf push <App Name> --docker-image <Docker Image Repository:TagName> --docker-username <docker username>
 e.g.
-cf push helloDemo --docker-image amacdonaldsap/hello:latest --docker-username amacdonaldsap
+cf push hello-node --docker-image amacdexp/hello-node:latest --docker-username amacdexp
+```
 
 Runs at:
 hellodemo.cfapps.eu10.hana.ondemand.com
@@ -60,17 +67,20 @@ hellodemo.cfapps.eu10.hana.ondemand.com
 # Push to K8S / Kyma
 ## Pre-req create Kyma system, and create a new namespace "hellodemo"
 
+```shell
 ## windows cmd
-Set KUBECONFIG=C:\<path>\kubeconfig--aaazzzz--okr0hqyaqu.yaml 
+Set KUBECONFIG=C:\<path>\kubeconfig.yaml 
 ## windows powershell
-$env:KUBECONFIG="C:\<path>\kubeconfig--aaazzzz--okr0hqyaqu.yaml" 
+$env:KUBECONFIG="C:\<path>\kubeconfig.yaml" 
 ## linux
 export KUBECONFIG=/<path>/kubeconfig--<kymasystem>.yaml 
 
 kubectl cluster-info 
-kubectl replace --force -n hellodemo -f k8sDeployment.yaml  
+
+## Push to K8S
+kubectl replace --force -n test -f k8sDeployment.yaml  
 
 
 # K8S commands
 kubectl -n hellodemo get pods  
-
+```
