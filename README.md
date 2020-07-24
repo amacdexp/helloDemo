@@ -76,7 +76,7 @@ Set KUBECONFIG=C:\<path>\kubeconfig.yaml
 # windows powershell
 $env:KUBECONFIG="C:\<path>\kubeconfig.yaml" 
 # linux
-export KUBECONFIG=/<path>/kubeconfig--<kymasystem>.yaml 
+export KUBECONFIG=/<path>/kubeconfig.yaml 
 
 kubectl cluster-info 
 
